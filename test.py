@@ -40,21 +40,46 @@
 
 # ---------------------------------------
 
+# candidate[n]에 득표수 저장 += count 해서 비교하기
+
+
 def solution(n,votes):
     answer = 0
     votes_len = len(votes)
     candidate = votes[0]
     count = 1
-    range(1,n+1)
+    for j in range(votes_len):
+      # 후보자 수 만큼 반복, votes[j]번째와 같다면, candidate[j]번째를 증가시키고,
+      # 다음 반복문 실행 
+      for i in range(1,n):
+        if(i==votes[j]):
+          candidate[j] += count
+          break
+    # 제일 많이 받은 후보 찾아내는 방법
+    
+    
+    
     
     return answer
  
 
 n = 3
 votes = [1,2,3,2,1,3,2,1,3]  
+candidate = votes[0]
+print(range(len(votes)))
 
-for i in votes:
-  print(i)
+for i in range(n):
+   candidate[i] = 0
+for j in range(len(votes)):
+      # 후보자 수 만큼 반복, votes[j]번째와 같다면, candidate[j]번째를 증가시키고,
+      # 다음 반복문 실행 
+      for i in range(n):
+        if(i+1==votes[j]):
+          candidate[i] += 1
+
+print(candidate)
+# for i in votes:
+#   print(i)
 # list 순서 뒤집기
 
 #-----------------------------
